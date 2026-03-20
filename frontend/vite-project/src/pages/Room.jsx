@@ -31,9 +31,8 @@ export default function Room() {
 
     socket.on("connect", () => {
       console.log("My socket ID:", socket.id);
+      socket.emit("join_room", { roomId, username });
     });
-
-    socket.emit("join_room", { roomId, username });
 
     socket.on("user_joined", (data) => {
       console.log("Participants:", data.participants);
