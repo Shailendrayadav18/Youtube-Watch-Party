@@ -2,7 +2,7 @@
 
 ## 🚀 Live Demo
 
-Frontend: https://youtubewatch-ifs4hu19p-shailendra-yadavs-projects-5ac84230.vercel.app
+Frontend: https://youtubewatch-hb0u5z9k6-shailendra-yadavs-projects-5ac84230.vercel.app
 Backend: https://youtube-watch-party-m7q9.onrender.com
 
 ---
