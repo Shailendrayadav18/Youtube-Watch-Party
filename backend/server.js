@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 const io = new Server(server, {
   cors: {
-    origin:"*",
+    origin:"https://youtubewatch-ifs4hu19p-shailendra-yadavs-projects-5ac84230.vercel.app",
   },
   transports: ["websocket"]
 });
