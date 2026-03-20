@@ -27,39 +27,37 @@ export default function Room() {
   const [role, setRole] = useState("participant");
 
   useEffect(() => {
-    socket.connect();
+  socket.connect();
 
-    socket.on("connect", () => {
-      console.log("My socket ID:", socket.id);
-      socket.emit("join_room", { roomId, username });
-    });
+  socket.on("connect", () => {
+    console.log("✅ Connected:", socket.id);
 
-    socket.on("user_joined", (data) => {
-      console.log("Participants:", data.participants);
-      setParticipants({ ...data.participants });
+    socket.emit("join_room", { roomId, username });
+  });
 
-      if (data.participants[socket.id]) {
-        setRole(data.participants[socket.id].role);
-      }
-    });
+  socket.on("user_joined", (data) => {
+    console.log("👥 Participants:", data.participants);
 
-    socket.on("role_assigned", (data) => {
-      setParticipants({ ...data.participants });
+    setParticipants({ ...data.participants });
 
-      if (data.participants[socket.id]) {
-        setRole(data.participants[socket.id].role);
-      }
-    });
+    if (socket.id && data.participants[socket.id]) {
+      setRole(data.participants[socket.id].role);
+    }
+  });
 
-    socket.on("participant_removed", (data) => {
-      setParticipants({ ...data.participants });
-    });
+  socket.on("role_assigned", (data) => {
+    setParticipants({ ...data.participants });
 
-    return () => {
-      socket.off();
-      socket.disconnect();
-    };
-  }, []);
+    if (socket.id && data.participants[socket.id]) {
+      setRole(data.participants[socket.id].role);
+    }
+  });
+
+  return () => {
+    socket.off();
+    socket.disconnect();
+  };
+}, []);
 
   return (
     <div style={{ padding: "20px", color: "white" }}>
