@@ -1,0 +1,27 @@
+body {
+  background: #0f172a;
+  color: white;
+  font-family: sans-serif;
+}
+
+.user-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #1e293b;
+  margin: 5px 0;
+  border-radius: 8px;
+}
+
+.role {
+  color: #38bdf8;
+}
+
+button {
+  background: #2563eb;
+  border: none;
+  padding: 6px 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
